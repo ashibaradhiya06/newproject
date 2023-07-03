@@ -1,0 +1,21 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <table class="table table-dark table-striped mt-5">
+        <tr>
+            <th>roll</th>
+            <th>name</th>
+            <th>marks</th>
+            <th colspan="2">modification </th>
+        </tr>
+
+        {% for i in data %}
+            <tr>
+                <td>{{i.roll}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.marks}}</td>
+                <td><button class="btn btn-danger"><a class="text-light text-decoration-none" href="{% url 'delete' i.id %}">Delete</a></button></td>
+                <td><button class="btn btn-success"><a class="text-light text-decoration-none" href="{% url 'update' i.id %}">Update</a></button></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
